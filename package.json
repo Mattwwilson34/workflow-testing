@@ -1,14 +1,20 @@
 {
   "name": "workflow-testing",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Mattwwilson34/workflow-testing.git",
   "author": "Matt Wilson <mattwwilson34@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": " jest --verbose",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest) --verbose --watchAll",
     "lint": "eslint .  --ext .js",
     "lint-fix": "eslint --fix .  --ext .js"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jest-environment-node",
+    "transform": {}
   },
   "dependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
